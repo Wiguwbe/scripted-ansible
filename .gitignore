@@ -1,0 +1,4 @@
+.vscode
+__pycache__
+# local folder with intel-gathering tests, to delete later
+test

@@ -1,0 +1,9 @@
+# an example ~/.ssh/config to test
+# against localhost (multiple times)
+
+# fake targets for local testing
+Host *.local
+	Hostname <your-hostname>
+	User <your-username>
+# if needed, don't forget to add to authorized_hosts
+#	IdentityFile ~/.ssh/id_rsa

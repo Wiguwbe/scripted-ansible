@@ -1,0 +1,58 @@
+## Tasks
+
+Tasks are plugin/*
+
+Instances/Children of ansible.plugins.action.ActionBase
+
+to get an action use
+```loader.action_loader.get(
+	str,
+	*args
+)
+```
+
+Args for ActionBase:
+	task:
+		ansible.playbook.task.Task
+	connection:
+		ansible.connection.Connection (child of)
+	play_context:
+		ansible.playbook.play_context.PlayContext
+	loader:
+		ansible.parsing.dataloader.DataLoader
+	templar:
+		ansible.template.Templar
+	shared_loader_obj:
+		module -> ansible.plugin.loader
+
+
+ansible.playbook.task.Task:
+	no args (if not needed)
+	use Task.load method ->
+		load(data: dict, **useless)
+
+ansible.connection.Connection:
+	use ansible.plugin.loader.connection_loader.get() (PluginLoader)
+	args for .get()
+		name:
+			str, the name of the connection plugin
+		play_context:
+			ansible.playbook.play_context.PlayContext
+		new_stdin:
+			str (?)
+
+ansible.playbook.play_context.PlayContext:
+	no args needed (to init)
+
+	need to set (at least) the `.remote_addr` property for the
+	connection plugin to use,
+
+	SSH is recommended, more configuration can be under ~/.ssh/config
+
+ansible.parsing.dataloader.DataLoader:
+	no args needed
+
+ansible.template.Templar:
+	args:
+		loader:
+			ansible.parsing.dataloader.DataLoader
