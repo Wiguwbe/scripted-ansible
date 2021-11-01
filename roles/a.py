@@ -1,5 +1,5 @@
 a = 4
 
-import time
+from scripted import ansible
 
-ansible.shell('ls')
+ansible.shell('dred putas')

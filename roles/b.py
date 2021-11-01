@@ -1,5 +1,5 @@
 b = 666
 
-import time
+from scripted import ansible
 
 ansible.file(path='/tmp/' + host + '.txt', state='touch')
