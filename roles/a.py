@@ -2,4 +2,6 @@ a = 4
 
 from scripted import ansible
 
-ansible.shell('dred putas')
+print('Trying to execute shell command')
+
+ansible.shell('ls')
